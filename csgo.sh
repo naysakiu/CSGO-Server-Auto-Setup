@@ -93,4 +93,3 @@ echo "Use screen -r to enter the console, to exit the console hit Ctrl+A and the
 echo "-----------------------------------------------------------------------------"
 echo "Your FastDL link is http://$fastdlip/csgo."
 read -p "Your Game Server Login Token is $gsltprint."
-rm csgo.sh
