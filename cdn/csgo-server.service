@@ -1,9 +1,0 @@
-[Unit]
-Description=IgnitionHost CSGO Server
-
-[Service]
-Type=forking
-ExecStart=/root/gslt_config/csgo_ignition.sh
-
-[Install]
-WantedBy=multi-user.target
