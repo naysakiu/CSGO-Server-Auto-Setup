@@ -19,7 +19,7 @@ curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
 apt update
 sudo dpkg --add-architecture i386
 sudo apt update
-sudo apt install mariadb-server nginx git file tar bzip2 gzip unzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc1 lib32stdc++6 libsdl2-2.0-0:i386
+sudo apt install screen mariadb-server nginx git file tar bzip2 gzip unzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc1 lib32stdc++6 libsdl2-2.0-0:i386
 
 cd /etc/mysql
 rm my.cnf
@@ -45,6 +45,7 @@ mkdir -p /root/.steam/sdk64
 cp -v /root/steam-cmd/linux64/steamclient.so /root/.steam/sdk64/steamclient.so
 
 cd /etc/nginx/
+rm /etc/nginx/sites-enabled/default
 rm nginx.conf
 wget https://raw.githubusercontent.com/naysaku/CSGO-Server-Auto-Setup/main/cdn/nginx.conf
 cd
@@ -74,6 +75,7 @@ mkdir gslt_config
 cd /root/gslt_config
 read -p "Enter your GSLT (Create one at https://steamcommunity.com/dev/managegameservers on id 730):" gsltprint
 {
+    echo '#!/bin/bash'; \
     echo 'GSLT='$gsltprint''; \
     echo 'screen -dm bash -c "cd /root/csgo-server && bash /root/csgo-server/srcds_run -game csgo -console -usercon +game_type 0 +game_mode 1 +mapgroup mg_active +map de_dust2 +sv_setsteamaccount $GSLT"'; \
 } >> "/root/gslt_config/csgo_ignition.sh"
