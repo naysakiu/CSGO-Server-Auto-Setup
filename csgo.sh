@@ -72,7 +72,7 @@ wget https://raw.githubusercontent.com/naysaku/CSGO-Server-Auto-Setup/main/cdn/c
 cd /root
 mkdir gslt_config
 cd /root/gslt_config
-read -p "Enter your GSLT:" gsltprint
+read -p "Enter your GSLT (Create one at https://steamcommunity.com/dev/managegameservers on id 730):" gsltprint
 {
     echo 'GSLT='$gsltprint''; \
     echo 'screen -dm bash -c "cd /root/csgo-server && bash /root/csgo-server/srcds_run -game csgo -console -usercon +game_type 0 +game_mode 1 +mapgroup mg_active +map de_dust2 +sv_setsteamaccount $GSLT"'; \
@@ -86,7 +86,7 @@ echo ""
 echo "Your can connect on your database on https://phpmyadmin.ignitionhost.ro"
 echo "Connect to the db using the server ip, database username and password"
 echo "-----------------------------------------------------------------------------"
-echo "DO NOT EVER RUN THE SERVER USING csgo_ignition.sh."
+echo "DO NOT EVER RUN THE SERVER USING csgo_ignition.sh. [It is controlled automatically by systemd(systemctl)]"
 echo "You can control the server using systemctl start/restart/stop csgo-server."
 echo "The server starts up automatically on every startup and after this setup."
 echo "Use screen -r to enter the console, to exit the console hit Ctrl+A and then D"
