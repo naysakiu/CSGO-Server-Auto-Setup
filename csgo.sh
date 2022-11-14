@@ -50,6 +50,9 @@ rm nginx.conf
 wget https://raw.githubusercontent.com/naysaku/CSGO-Server-Auto-Setup/main/cdn/nginx.conf
 cd
 
+chown -R www-data:www-data /root/csgo-server/*
+chmod -R 777 /root/csgo-server
+
 fastdlip=`hostname -i`
 {
     echo '//FastDownload'; \
