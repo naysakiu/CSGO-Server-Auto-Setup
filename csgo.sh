@@ -71,8 +71,9 @@ read -p "Enter your GSLT (Create one at https://steamcommunity.com/dev/managegam
 chmod +x csgo_ignition.sh
 cd
 systemctl enable csgo-server
+systemctl start csgo-server
 echo ""
-echo "Server installed!!!"
+echo "Server installed and started!!!"
 echo ""
 echo "Your can connect on your database on https://phpmyadmin.ignitionhost.ro"
 echo "Connect to the db using the server ip, database username and password"
