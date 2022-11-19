@@ -8,7 +8,7 @@ fi
 
 echo "      Thanks For Buying From Ignition."
 echo "With this script you can setup your CS:GO server"
-echo "      Made By SuperHori♡#6969"
+echo "      Made By IGNITION SOLUTIONS LTD"
 read -p "Press any key to start installing ..."
 
 apt -y install sudo
@@ -19,7 +19,7 @@ curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
 apt -y update
 sudo dpkg --add-architecture i386
 sudo apt -y update
-sudo apt -y install screen mariadb-server nginx git file tar bzip2 gzip unzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc1 lib32stdc++6 libsdl2-2.0-0:i386
+sudo apt -y install screen mariadb-server apache2 git file tar bzip2 gzip unzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc1 lib32stdc++6 libsdl2-2.0-0:i386
 
 cd /etc/mysql
 rm my.cnf
@@ -44,22 +44,8 @@ cp -v /root/steam-cmd/linux32/steamclient.so /root/.steam/sdk32/steamclient.so
 mkdir -p /root/.steam/sdk64
 cp -v /root/steam-cmd/linux64/steamclient.so /root/.steam/sdk64/steamclient.so
 
-cd /etc/nginx/
-rm /etc/nginx/sites-enabled/default
-rm nginx.conf
-wget https://raw.githubusercontent.com/naysaku/CSGO-Server-Auto-Setup/main/cdn/nginx.conf
-cd
-
 chown -R www-data:www-data /root/csgo-server/*
 chmod -R 777 /root/csgo-server
-
-fastdlip=`hostname -i`
-{
-    echo '//FastDownload'; \
-    echo 'sv_downloadurl "http://'$fastdlip'/csgo"'; \
-    echo 'sv_allowdownload 1'; \
-    echo 'sv_allowupload 0'; \
-} >> "/root/csgo-server/csgo/cfg/server.cfg"
 
 echo "Warning, write these down somewhere."
 read -p "Database username?: " db
@@ -96,5 +82,3 @@ echo "You can control the server using systemctl start/restart/stop csgo-server.
 echo "The server starts up automatically on every startup and after this setup."
 echo "Use screen -r to enter the console, to exit the console hit Ctrl+A and then D"
 echo "-----------------------------------------------------------------------------"
-echo "Your FastDL link is http://$fastdlip/csgo."
-read -p "Your Game Server Login Token is $gsltprint."
