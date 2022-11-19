@@ -16,10 +16,10 @@ sudo apt update
 sudo apt -y upgrade
 
 curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
-apt update
+apt -y update
 sudo dpkg --add-architecture i386
-sudo apt update
-sudo apt install screen mariadb-server nginx git file tar bzip2 gzip unzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc1 lib32stdc++6 libsdl2-2.0-0:i386
+sudo apt -y update
+sudo apt -y install screen mariadb-server nginx git file tar bzip2 gzip unzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc1 lib32stdc++6 libsdl2-2.0-0:i386
 
 cd /etc/mysql
 rm my.cnf
